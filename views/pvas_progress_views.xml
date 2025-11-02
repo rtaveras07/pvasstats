@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Tree view -->
+    <record id="view_pvas_progress_stats_tree" model="ir.ui.view">
+        <field name="name">pvas.progress.stats.tree</field>
+        <field name="model">pvas.progress.stats</field>
+        <field name="arch" type="xml">
+            <tree string="Grade Progress Statistics">
+                <field name="professor_id" string="Professor"/>
+                <field name="course_id" string="Course"/>
+                <field name="subject_id" string="Subject"/>
+                <field name="total_grades" string="Total Grades"/>
+            
+            </tree>
+        </field>
+    </record>
+
+    <!-- Graph view -->
+    <record id="view_pvas_progress_stats_graph" model="ir.ui.view">
+        <field name="name">pvas.progress.stats.graph</field>
+        <field name="model">pvas.progress.stats</field>
+        <field name="arch" type="xml">
+            <graph string="Grade Progress Analysis" type="bar">
+                <field name="professor_id" type="row"/>
+             
+            </graph>
+        </field>
+    </record>
+
+    <!-- Pivot view -->
+    <record id="view_pvas_progress_stats_pivot" model="ir.ui.view">
+        <field name="name">pvas.progress.stats.pivot</field>
+        <field name="model">pvas.progress.stats</field>
+        <field name="arch" type="xml">
+            <pivot string="Grade Progress Analysis">
+                <field name="professor_id" type="row"/>
+                <field name="course_id" type="row"/>
+                <field name="subject_id" type="row"/>
+         
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Search view -->
+    <record id="view_pvas_progress_stats_search" model="ir.ui.view">
+        <field name="name">pvas.progress.stats.search</field>
+        <field name="model">pvas.progress.stats</field>
+        <field name="arch" type="xml">
+            <search string="Grade Progress Search">
+                <field name="professor_id"/>
+                <field name="course_id"/>
+                <field name="subject_id"/>
+                <group expand="0" string="Group By">
+                    <filter name="group_by_professor" string="Professor" context="{'group_by':'professor_id'}"/>
+                    <filter name="group_by_course" string="Course" context="{'group_by':'course_id'}"/>
+                    <filter name="group_by_subject" string="Subject" context="{'group_by':'subject_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+pvasstats.access_pvas_progress_stats,Pvas Progress Stats Access,model_pvas_progress_stats,base.group_user,1,0,0,0

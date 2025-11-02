@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_pvas_progress_stats" model="ir.actions.act_window">
+        <field name="name">Grade Progress Statistics</field>
+        <field name="res_model">pvas.progress.stats</field>
+        <field name="view_mode">graph,pivot,tree</field>
+        <field name="search_view_id" ref="view_pvas_progress_stats_search"/>
+    </record>
+
+    <menuitem id="menu_pvas_progress_stats"
+              name="Grade Progress"
+              parent="pvas.menu_root"
+              action="action_pvas_progress_stats"
+              sequence="20"/>
+</odoo>
