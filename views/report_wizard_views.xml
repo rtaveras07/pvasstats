@@ -1,0 +1,41 @@
+<odoo>
+    <record id="view_student_report_wizard_form" model="ir.ui.view">
+        <field name="name">pvas.student.report.wizard.form</field>
+        <field name="model">pvas.student_report_wizard</field>
+        <field name="arch" type="xml">
+            <form string="Reporte de Estudiantes por Curso">
+                <sheet>
+                    <group>
+                        <group string="Parámetros del Reporte">
+                            <field name="course_id" required="1"/>
+                            <field name="subject_id"/>
+                            <field name="student_id"/>
+                            <field name="report_type" widget="radio"/>
+                        </group>
+                    </group>
+                    
+                    <!-- ✅ Nueva sintaxis sin attrs -->
+                    <group string="Resultados Detallados" invisible="report_type == 'summary'">
+                        <div class="alert alert-info">
+                            <strong>Reporte Detallado:</strong> Mostrando calificaciones individuales
+                        </div>
+                        <field name="detailed_results" nolabel="1" widget="html"/>
+                    </group>
+                    
+                    <group string="Resultados Resumidos" invisible="report_type == 'detailed'">
+                        <div class="alert alert-info">
+                            <strong>Reporte Resumido:</strong> Mostrando resumen por estudiante
+                        </div>
+                        <field name="summary_results" nolabel="1" widget="html"/>
+                    </group>
+                </sheet>
+
+                <footer>
+                    <button string="Cerrar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+  
+</odoo>

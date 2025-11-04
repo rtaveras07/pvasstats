@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   
+
+    <!-- Vista árbol -->
+    <record id="view_pvas_studentstats_tree" model="ir.ui.view">
+        <field name="name">pvas.student.stats.tree</field>
+        <field name="model">pvas.student.stats</field>
+        <field name="arch" type="xml">
+            <tree string="Progreso de Calificaciones por Estudiante">
+                <field name="student_id" string="Estudiante"/>
+                <field name="course_id" string="Curso"/>
+                <field name="total_subjects_competences" string="Asignaturas con Competencias"/>
+                <field name="total_subjects_ra" string="Asignaturas con RAs"/>
+                <field name="total_subjects_graded" string="Total Asignaturas Calificadas"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Vista gráfica -->
+    <record id="view_pvas_student_stats_graph" model="ir.ui.view">
+        <field name="name">pvas.student.stats.graph</field>
+        <field name="model">pvas.student.stats</field>
+        <field name="arch" type="xml">
+            <graph string="Progreso de Calificaciones por Estudiante" type="bar">
+                <field name="student_id" type="row"/>
+                <field name="total_subjects_competences" type="measure"/>
+                <field name="total_subjects_ra" type="measure"/>
+                <field name="total_subjects_graded" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Vista pivote -->
+    <record id="view_pvas_student_stats_pivot" model="ir.ui.view">
+        <field name="name">pvas.student.stats.pivot</field>
+        <field name="model">pvas.student.stats</field>
+        <field name="arch" type="xml">
+            <pivot string="Progreso de Calificaciones por Estudiante">
+                <field name="student_id" type="row"/>
+                <field name="course_id" type="col"/>
+                <field name="total_subjects_competences" type="measure"/>
+                <field name="total_subjects_ra" type="measure"/>
+                <field name="total_subjects_graded" type="measure"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- Vista de búsqueda -->
+    <record id="buscar" model="ir.ui.view">
+        <field name="name">pvas.student.stats.search</field>
+        <field name="model">pvas.student.stats</field>
+        <field name="arch" type="xml">
+            <search string="Búsqueda de Progreso por Estudiante">
+                <field name="student_id"/>
+                <field name="course_id"/>
+                <group expand="0" string="Agrupar por">
+                    <filter name="group_by_student" string="Estudiante" context="{'group_by':'student_id'}"/>
+                    <filter name="group_by_course" string="Curso" context="{'group_by':'course_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+     <!-- Acción de ventana -->
+    <record id="action_pvas_student_stats" model="ir.actions.act_window">
+        <field name="name">Progreso de Calificaciones por Estudiante</field>
+        <field name="res_model">pvas.student.stats</field>
+        <field name="view_mode">tree,pivot,graph</field>
+        <field name="search_view_id" ref="buscar"/>
+        <field name="context">{'search_default_group_by_course':1}</field>
+    </record>
+</odoo>

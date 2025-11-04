@@ -14,9 +14,11 @@
     'author': 'Custom',
     'depends': ['pvas'],
     'data': [
-        'views/pvas_progress_views.xml',
-        'views/pvas_progress_menu.xml',
-        'security/ir.model.access.csv',
+        # SOLO archivos XML - ORDEN CRÍTICO
+        'views/report_wizard_views.xml',  # 1. Define la acción PRIMERO
+        'views/pvas_progress_views.xml',  # 2. Otras vistas
+        'views/pvas_progress_menu.xml',   # 3. Menú principal
+        
     ],
     'application': False,
     'installable': True,

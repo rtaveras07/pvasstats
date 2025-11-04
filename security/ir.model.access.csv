@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 pvasstats.access_pvas_progress_stats,Pvas Progress Stats Access,model_pvas_progress_stats,base.group_user,1,0,0,0
+pvasstats.access_pvas_student_stats,Pvas Student Stats Access,model_pvas_student_stats,base.group_user,1,0,0,0
+pvasstats.access_pvas_student_report_wizard,Pvas Student Report Wizard Access,model_pvas_student_report_wizard,base.group_user,1,0,0,0

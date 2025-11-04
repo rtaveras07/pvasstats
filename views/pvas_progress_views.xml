@@ -5,12 +5,11 @@
         <field name="name">pvas.progress.stats.tree</field>
         <field name="model">pvas.progress.stats</field>
         <field name="arch" type="xml">
-            <tree string="Grade Progress Statistics">
-                <field name="professor_id" string="Professor"/>
-                <field name="course_id" string="Course"/>
-                <field name="subject_id" string="Subject"/>
-                <field name="total_grades" string="Total Grades"/>
-            
+            <tree string="Análisis del progreso de calificaciones">
+                <field name="professor_id" string="Profesor"/>
+                <field name="course_id" string="Curso"/>
+                <field name="subject_id" string="Asignatura"/>
+                <field name="total_grades" string="Regristros en calificaciones"/>
             </tree>
         </field>
     </record>
@@ -20,9 +19,8 @@
         <field name="name">pvas.progress.stats.graph</field>
         <field name="model">pvas.progress.stats</field>
         <field name="arch" type="xml">
-            <graph string="Grade Progress Analysis" type="bar">
+            <graph string="Análisis del progreso de calificaciones" type="bar">
                 <field name="professor_id" type="row"/>
-             
             </graph>
         </field>
     </record>
@@ -32,11 +30,10 @@
         <field name="name">pvas.progress.stats.pivot</field>
         <field name="model">pvas.progress.stats</field>
         <field name="arch" type="xml">
-            <pivot string="Grade Progress Analysis">
+            <pivot string="Análisis del progreso de calificaciones">
                 <field name="professor_id" type="row"/>
                 <field name="course_id" type="row"/>
                 <field name="subject_id" type="row"/>
-         
             </pivot>
         </field>
     </record>
@@ -51,9 +48,9 @@
                 <field name="course_id"/>
                 <field name="subject_id"/>
                 <group expand="0" string="Group By">
-                    <filter name="group_by_professor" string="Professor" context="{'group_by':'professor_id'}"/>
-                    <filter name="group_by_course" string="Course" context="{'group_by':'course_id'}"/>
-                    <filter name="group_by_subject" string="Subject" context="{'group_by':'subject_id'}"/>
+                    <filter name="group_by_professor" string="Profesor" context="{'group_by':'professor_id'}"/>
+                    <filter name="group_by_course" string="Curso" context="{'group_by':'course_id'}"/>
+                    <filter name="group_by_subject" string="Asignatura" context="{'group_by':'subject_id'}"/>
                 </group>
             </search>
         </field>

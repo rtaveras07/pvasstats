@@ -1,15 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <record id="action_pvas_progress_stats" model="ir.actions.act_window">
-        <field name="name">Grade Progress Statistics</field>
+        <field name="name">Análisis del progreso de calificaciones</field>
         <field name="res_model">pvas.progress.stats</field>
         <field name="view_mode">graph,pivot,tree</field>
         <field name="search_view_id" ref="view_pvas_progress_stats_search"/>
     </record>
 
+    <record id="action_pvas_student_stats" model="ir.actions.act_window">
+        <field name="name">Progreso por Estudiante</field>
+        <field name="res_model">pvas.student.stats</field>
+        <field name="view_mode">tree,pivot,graph</field>
+        <field name="context">{'search_default_group_by_course':1}</field>
+    </record>
+
+        <record id="action_student_report_wizard" model="ir.actions.act_window">
+        <field name="name">Reportes por Curso</field>
+        <field name="res_model">pvas.student_report_wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_student_report_wizard_form"/>
+        <field name="target">new</field>
+    </record>
+ 
+
     <menuitem id="menu_pvas_progress_stats"
-              name="Grade Progress"
+              name="Estadísticas"
               parent="pvas.menu_root"
-              action="action_pvas_progress_stats"
               sequence="20"/>
+
+    <menuitem id="menu_pvas_progress_by_teacher"
+              name="Por Profesor"
+              parent="menu_pvas_progress_stats"
+              action="action_pvas_progress_stats"
+              sequence="10"/>
+
+    <!--<menuitem id="menu_pvas_progress_by_student"
+              name="Por Estudiante"
+              parent="menu_pvas_progress_stats"
+              action="action_pvas_student_stats"
+              sequence="20"/> -->
+
+
+    <menuitem id="menu_pvas_reports_by_course"
+              name="Reportes por Curso"
+              parent="menu_pvas_progress_stats"
+              action="action_student_report_wizard"
+              sequence="31"/>
+
+  
 </odoo>
